@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>My TO-DO</title>
+</head>
+<body>
+    <div id="container">
+        <div class="header">
+            <h1 id="page_title">나의 해야 할 일들</h1>
+            <span id="add_todo_btn">ADD TODO</span>
+        </div>
+        <div class="todo">
+            <div class="section_todo_lst">
+                <div class="wrap_todo_box todo">
+                    <div class="lst_title">TO-DO</div>
+                    <ul class="lst_todo todo">
+                        <!-- Todo List -->
+                    </ul>
+                </div>
+
+                <div class="wrap_todo_box doing">
+                    <div class="lst_title">DOING</div>
+                    <ul class="lst_todo doing">
+                        <!-- Doing List -->
+                    </ul>
+                </div>
+                <div class="wrap_todo_box done">
+                    <div class="lst_title">DONE</div>
+                    <ul class="lst_todo done">
+                        <!-- Done List -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrap_popup add" style="display: none;">
+        <div class="back_dark" style="display: block;"></div>
+        <div class="popup_add">
+            <div class="popup_title add">TO-DO 등록하기</div>
+            <form class="popup_todoform" id="addTodoForm">
+                <label for="todo_input">어떤 일인가요?</label><br>
+                <input type="text" name="what" id="todo_input" placeholder="공부하기 (최대 24자)" maxlength="24" required><br>
+                <label for="name_input">누가 할 일인가요?</label><br>
+                <input type="text" name="who" id="name_input" placeholder="홍길동 (최대 10자)" maxlength="10" required><br>
+                <label>우선순위를 선택하세요.</label><br>
+                <input type="radio" name="priority" id="r1" value="1" required checked>
+                <label for="r1">1순위</label>
+                <input type="radio" name="priority" id="r2" value="2">
+                <label for="r2">2순위</label>
+                <input type="radio" name="priority" id="r3" value="3">
+                <label for="r3">3순위</label>
+            </form>
+            <div class="popup_btns">
+                <div class="btn_reject">취소</div>
+                <div class="btn_agree">등록</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrap_popup delete" style="display: none;">
+        <div class="back_dark" style="display: block;"></div>
+        <div class="popup_delete">
+            <div class="popup_title del">카드 삭제하기</div>
+            <h1 class="popup_infos">
+                <span class="del_title">TITLE</span>
+                <small class="del_info">INFOS</small>
+            </h1>
+            <div class="delete_msg">
+                <p>삭제하시겠습니까?</p>
+            </div>
+            <div class="popup_btns">
+                <div class="btn_reject">취소</div>
+                <div class="btn_agree">삭제</div>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <script type="x-template" id="cardItem">
+        <li class="item" data-value={{id}}>
+            <div class="item_txt">
+                <h3>
+                    <span class="item_title">{{title}}</span><hr>
+                    <small class="item_info">
+                        등록날짜 : <span>{{regDate}}</span>
+                        이름 : <span>{{name}}</span>
+                        우선순위 : <span>{{sequence}}</span>
+                    </small>
+                </h3>
+            </div>
+            <div class="btns">
+                <span class="item_remove_btn">
+                    <button>Ⅹ</button>
+                </span>
+                <br>
+                <span class="item_next_btn">
+                    <button>▶</button>
+                </span>
+            </div>
+        </li>
+    </script>
+    <script src="JS/handlebars.min.js"></script>
+    <script src="JS/commons.js"></script>
+    <script src="JS/cardmain.js"></script>
+    <script src="JS/deleteform.js"></script>
+    <script src="JS/register.js"></script>
+    <script src="JS/pageinit.js"></script>
+</footer>
+</html>
